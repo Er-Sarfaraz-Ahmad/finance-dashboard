@@ -1,0 +1,84 @@
+<h2>Add Transaction</h2>
+
+<div class="summary-cards">
+  <div class="summary-card">
+    <div class="title">Balance</div>
+    <div class="value">{{ balance | currency:'INR':'symbol':'1.0-0' }}</div>
+  </div>
+  <div class="summary-card">
+    <div class="title">Income</div>
+    <div class="value">{{ income | currency:'INR':'symbol':'1.0-0' }}</div>
+  </div>
+  <div class="summary-card">
+    <div class="title">Expense</div>
+    <div class="value">{{ expense | currency:'INR':'symbol':'1.0-0' }}</div>
+  </div>
+</div>
+
+<div class="role-banner" *ngIf="!isAdmin">
+  You are currently in Viewer mode. Transactions cannot be added or deleted.
+</div>
+
+<!-- ✅ FORM -->
+<form #f="ngForm" (ngSubmit)="addTransaction()" *ngIf="isAdmin">
+
+  <input 
+    type="number"
+    [(ngModel)]="amount" 
+    name="amount"
+    placeholder="Amount" 
+    required
+  >
+  
+  <select [(ngModel)]="type" name="type" required>
+    <option value="income">Income</option>
+    <option value="expense">Expense</option>
+  </select>
+
+  <input 
+    type="text"
+    [(ngModel)]="category" 
+    name="category"
+    placeholder="Category" 
+    required
+  >
+
+  <button type="submit">Add</button>
+
+</form>
+
+<!-- ✅ FILTER -->
+<div class="filters">
+  <button type="button" (click)="filterType='all'">All</button>
+  <button type="button" (click)="filterType='income'">Income</button>
+  <button type="button" (click)="filterType='expense'">Expense</button>
+</div>
+
+<!-- ✅ SEARCH (FIXED) -->
+<input 
+  type="text" 
+  placeholder="Search category..." 
+  [(ngModel)]="searchText"
+  [ngModelOptions]="{standalone: true}"
+/>
+
+<!-- ✅ TABLE -->
+<table border="1" cellpadding="10" style="margin-top: 20px; width: 100%;">
+  <tr>
+    <th>Date</th>
+    <th>Amount</th>
+    <th>Category</th>
+    <th>Type</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let t of searchedTransactions; let i = index">
+    <td>{{t.date}}</td>
+    <td>{{t.amount | currency:'INR':'symbol':'1.0-0'}}</td>
+    <td>{{t.category || '-'}}</td> <!-- ✅ SAFE -->
+    <td>{{t.type}}</td>
+    <td>
+      <button type="button" (click)="deleteTransaction(i)" [disabled]="!isAdmin">Delete</button>
+    </td>
+  </tr>
+</table>

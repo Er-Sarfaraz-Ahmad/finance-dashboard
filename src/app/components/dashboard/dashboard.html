@@ -1,0 +1,26 @@
+<div class="cards">
+  <div class="card">
+    <div>Balance</div>
+    <div class="value">{{ balance | currency:'INR':'symbol':'1.0-0' }}</div>
+  </div>
+  <div class="card">
+    <div>Income</div>
+    <div class="value">{{ income | currency:'INR':'symbol':'1.0-0' }}</div>
+  </div>
+  <div class="card">
+    <div>Expense</div>
+    <div class="value">{{ expense | currency:'INR':'symbol':'1.0-0' }}</div>
+  </div>
+</div>
+
+<div class="charts">
+  <div class="chart-box">
+    <canvas #lineChart></canvas>
+  </div>
+
+  <div class="chart-box">
+    <canvas #pieChart></canvas>
+  </div>
+</div>
+
+<button (click)="updateCharts()">Update Charts</button>

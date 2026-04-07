@@ -4,12 +4,18 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "types": [
       "vitest/globals"
     ]
   },
   "include": [
-    "src/**/*.d.ts",
-    "src/**/*.spec.ts"
+    "src/app/**/*.d.ts",
+    "src/app/**/*.spec.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

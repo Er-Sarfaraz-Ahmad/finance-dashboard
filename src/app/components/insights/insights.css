@@ -1,0 +1,68 @@
+.insights-container {
+  padding: 20px;
+}
+
+.insight-cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.insight-card {
+  flex: 1 1 240px;
+  padding: 18px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  min-width: 220px;
+}
+
+.card-label {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card-value.small {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.summary-section {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.summary-section h3 {
+  margin-top: 0;
+}
+
+.summary-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.summary-section th,
+.summary-section td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.summary-section th {
+  background: #111827;
+  color: white;
+}
+
+.summary-section tr:last-child td {
+  border-bottom: none;
+}

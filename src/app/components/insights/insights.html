@@ -1,0 +1,41 @@
+<div class="insights-container">
+  <h2>Insights</h2>
+
+  <div class="insight-cards">
+    <div class="insight-card">
+      <div class="card-label">Top Expense Category</div>
+      <div class="card-value">{{ highestExpenseCategory }}</div>
+    </div>
+    <div class="insight-card">
+      <div class="card-label">Expense Ratio</div>
+      <div class="card-value">{{ spendRatio }}</div>
+    </div>
+    <div class="insight-card">
+      <div class="card-label">Observation</div>
+      <div class="card-value small">{{ observation }}</div>
+    </div>
+  </div>
+
+  <div class="summary-section">
+    <h3>Monthly Summary</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Income</th>
+          <th>Expense</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let month of monthlySummary">
+          <td>{{ month.month }}</td>
+          <td>{{ month.income | currency:'INR':'symbol':'1.0-0' }}</td>
+          <td>{{ month.expense | currency:'INR':'symbol':'1.0-0' }}</td>
+        </tr>
+        <tr *ngIf="monthlySummary.length === 0">
+          <td colspan="3">Add transactions to see monthly insights.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
