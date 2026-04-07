@@ -12,10 +12,10 @@ A simple and interactive finance dashboard to track income and expenses with cha
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./Screenshots/dashboard.png)
 
 ### Transactions
-![Transactions](./screenshots/transactions.png)
+![Transactions](./Screenshots/transactions.png)
 
 ---
 
