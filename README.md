@@ -5,7 +5,7 @@ A simple and interactive finance dashboard to track income and expenses with cha
 ---
 
 ## 🚀 Live Demo
-👉 ()
+👉 (https://stupendous-churros-7369a1.netlify.app)
 
 ---
 
